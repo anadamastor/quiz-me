@@ -8,11 +8,7 @@ function App() {
   return (
     <>
       <div className={"max-w-4xl min-w-md mx-auto pt-20"}>
-        <div
-          className={
-            "border border-stone-200 shadow-md p-10 mx-8 bg-slate-300 bg-opacity-10 border-l-8"
-          }
-        >
+        <div className={"mx-8 rounded-sm"}>
           <h1 className={"text-4xl mb-10 text-center"}>{card.question}</h1>
           <ul>
             {Object.entries(card.answers).map(
