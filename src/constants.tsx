@@ -30,4 +30,9 @@ const card3 = {
   correctAnswer: 0,
 };
 
-export const CARDS = [card1, card2, card3];
+export const CARDS: Card[] = [card1, card2, card3];
+export type Card = {
+  question: string;
+  answers: { [key: number]: string };
+  correctAnswer: number;
+};
