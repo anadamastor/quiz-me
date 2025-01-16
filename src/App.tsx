@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { CARDS } from "./constants";
+import React from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [cardIndex, setCardIndex] = useState(0);
+  const card = CARDS[cardIndex];
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className={"max-w-3xl min-w-md mx-auto pt-20"}>
+        <div className={"border border-stone-200 shadow-md p-10 mx-8"}>
+          <h1 className={"text-4xl mb-10 text-center"}>{card.question}</h1>
+          <ul>
+            {Object.entries(card.answers).map(
+              ([answerIndex, answer], questionIndex) => {
+                return (
+                  <li
+                    className={
+                      "flex align-middle my-2 px-4 border rounded-full py-4 hover:shadow-sm hover:bg-slate-100 hover:cursor-pointer"
+                    }
+                    key={answerIndex}
+                    onClick={() =>
+                      setCardIndex(Math.floor(Math.random() * 2) + 1)
+                    }
+                  >
+                    <input
+                      type="radio"
+                      name={card.question}
+                      id={`${questionIndex}-${answerIndex}`}
+                      value={answerIndex}
+                    />
+                    <label
+                      htmlFor={`${questionIndex}-${answerIndex}`}
+                      className={"ml-3 text-lg text-gray-800"}
+                    >
+                      {answer}
+                    </label>
+                  </li>
+                );
+              }
+            )}
+          </ul>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
