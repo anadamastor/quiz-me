@@ -7,8 +7,12 @@ function App() {
   const card = CARDS[cardIndex];
   return (
     <>
-      <div className={"max-w-3xl min-w-md mx-auto pt-20"}>
-        <div className={"border border-stone-200 shadow-md p-10 mx-8"}>
+      <div className={"max-w-4xl min-w-md mx-auto pt-20"}>
+        <div
+          className={
+            "border border-stone-200 shadow-md p-10 mx-8 bg-slate-300 bg-opacity-10 border-l-8"
+          }
+        >
           <h1 className={"text-4xl mb-10 text-center"}>{card.question}</h1>
           <ul>
             {Object.entries(card.answers).map(
@@ -16,7 +20,7 @@ function App() {
                 return (
                   <li
                     className={
-                      "flex align-middle my-2 px-4 border rounded-full py-4 hover:shadow-sm hover:bg-slate-100 hover:cursor-pointer"
+                      "flex align-middle my-2 px-4 border rounded-full py-4 shadow-md hover:bg-slate-100 hover:cursor-pointer"
                     }
                     key={answerIndex}
                     onClick={() =>
