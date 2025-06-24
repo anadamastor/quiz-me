@@ -14,7 +14,7 @@ export const PossibleAnswers = ({ card }: { card: Card }) => {
 
   return (
     <>
-      <ul className="h-80">
+      <ul >
         {answers.map((answer) => {
           return (
             <PossibleAnswer

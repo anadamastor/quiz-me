@@ -10,8 +10,8 @@ function App() {
   return (
     <>
       <div className={"max-w-4xl min-w-md mx-auto pt-20"}>
-        <div className={"mx-8 rounded-sm align-middle"}>
-          <h1 className={"text-4xl mb-10 h-20"}>{card.question}</h1>
+        <div className={"mx-8 align-middle"}>
+          <h1 className={"text-2xl mb-4"}>{card.question}</h1>
 
           <PossibleAnswers card={card} key={cardIndex} />
           <NextButton allCards={REACT_RENDER_CYCLE_DECK_MEMOIZATION} setCardIndex={setCardIndex} />
