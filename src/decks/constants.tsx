@@ -13,6 +13,8 @@ const card1 = {
     },
   ],
   correctAnswerId: 2,
+  explanation: "nada"
+
 };
 
 const card2 = {
@@ -34,6 +36,8 @@ const card2 = {
     },
   ],
   correctAnswerId: 2,
+  explanation: "nada"
+
 };
 
 const card3 = {
@@ -48,6 +52,8 @@ const card3 = {
     { id: 3, text: "The default state object defined for the application." },
   ],
   correctAnswerId: 0,
+  explanation: "nada"
+
 };
 
 export const CARDS: Card[] = [card1, card2, card3];
@@ -56,4 +62,6 @@ export type Card = {
   question: string;
   answers: { id: number; text: string }[];
   correctAnswerId: number;
+  explanation: string;
+
 };

@@ -2,41 +2,41 @@ import { useState } from "react";
 
 export const PossibleAnswer = ({
   id,
-  text,
-  correctAnswerId,
+  answerText,
+  question,
+  isCorrect,
   selectedId,
-  onSelect,
+  handleSelect
 }: {
   id: number;
-  text: string;
-  correctAnswerId: number;
-  selectedId: number | null;
-  onSelect: (id: number) => void;
+  answerText: string;
+  question: string;
+  isCorrect: boolean
+  selectedId?: number
+  handleSelect: (id: number) => void
 }) => {
-  const isSelected = selectedId === id;
-  const isCorrect = isSelected && id === correctAnswerId;
-  const isWrong = isSelected && id !== correctAnswerId;
+
 
   return (
     <>
       <li
-        className={`flex align-middle my-4 px-4 border py-4 shadow-md hover:border-slate-600 hover:cursor-pointer active:shadow-md ${
-          isCorrect && " bg-lime-100 border-slate-600"
-        } ${isWrong && " bg-red-400 border-slate-600"}`}
+        className={` align-middle my-4 px-4 border py-4 shadow-md hover:border-slate-600 hover:cursor-pointer active:shadow-md ${(selectedId === id && isCorrect) && " bg-lime-400 border-slate-600"} 
+        ${(selectedId === id && !isCorrect) && " bg-red-400 border-slate-600"}`}
         key={id}
-        onClick={() => onSelect(id)}
+        onClick={() => handleSelect(id)}
       >
         <input
           type="radio"
           key={id}
-          value={text}
-          name={text}
-          checked={isSelected}
+          value={answerText}
+          name={question}
+          checked={id === selectedId}
         />
         <label htmlFor={`${id}`} className={"ml-3 text-lg text-gray-800"}>
-          {text}
+          {answerText}
         </label>
-      </li>
+
+      </li >
     </>
   );
 };
