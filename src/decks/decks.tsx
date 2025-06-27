@@ -504,7 +504,7 @@ export const PRIVATE_DEBT_DECK = {
 }
 
 export const PRIVATE_EQUITY_DECK = {
-  deckname: "Private Equity Strategies",
+  deckName: "Private Equity Strategies",
   description: "Test your knowledge of private equity strategies, structures, and market trends",
   cards: [
     {
